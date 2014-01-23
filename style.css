@@ -1,3 +1,7 @@
+body {
+  background-image:url('img/flag.jpg');
+  margin: 0px;
+}
 .cell {
   width: 100px;
   height: 100px;
@@ -9,8 +13,9 @@
   clear:both;
 }
 .pic1 {
-  background-color: green;
+  content:url('img/apple_150.jpg');
 }
 .pic2{
-  background-color: black;
+  content:url('img/stones128.png');
+  background-color: white;
 }
