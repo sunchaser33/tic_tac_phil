@@ -1,0 +1,16 @@
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  margin: 5px;
+  float: left;
+}
+.clear {
+  clear:both;
+}
+.pic1 {
+  background-color: yellow;
+}
+.pic2{
+  background-color: black;
+}
