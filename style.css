@@ -1,10 +1,18 @@
-body {
-  background-image:url('img/flag.jpg');
-  margin: 0px;
+html {
+  background:url('img/flag.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+.container {
+  position: absolute;
+  bottom: 0px;
+
 }
 .cell {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: orange;
   margin: 5px;
   float: left;
