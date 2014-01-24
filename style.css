@@ -10,6 +10,10 @@ html {
   bottom: 0px;
 
 }
+.message {
+  font: 40px;
+  color: white;
+}
 .cell {
   width: 150px;
   height: 150px;

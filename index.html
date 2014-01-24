@@ -7,14 +7,14 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
     <meta charset="UTF-8">
   </head>
-  <body>
+  <body> 
     <div class="container" ng-controller="boardCtrl">
       <div class="message"><h1>{{winner}}</h1></div>
       <div ng-repeat="box in boxes track by $index" 
         x-ng-class="{cell:true, clear: $index % 3 == 0, pic1:boxes[$index]=='v', pic2:boxes[$index]=='z'}" 
         x-ng-click="takeTurn($index)"> 
         {{box}}</div>
-        
+      
     </div>
   </body>
 </html>
