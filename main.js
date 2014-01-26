@@ -19,7 +19,14 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
     $scope.turnCounter++;
   };
 
-
+var winnerMessage = function () {
+    if ($scope.xTurn == 1) {
+      $scope.winner = "Beatles Win!!! -- You Are The Walrus!!!";
+    }
+    else {
+      $scope.winner = "Stones Win!!! -- Keef is impressed.";
+    }
+    }
   $scope.checkWin = function () {
     $scope.winAry = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
     for (var i = 0; i < 8; i++) {
@@ -27,21 +34,15 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
         == $scope.boxes[$scope.winAry[i][1]] && $scope.boxes[$scope.winAry[i][0]] 
         == $scope.boxes[$scope.winAry[i][2]] && $scope.boxes[$scope.winAry[i][0]] !== "") {
           $scope.xTurn = $scope.xTurn +1;
-          $scope.winner = "We have a winner!";
+          winnerMessage();
+          // $scope.winner = "We have a winner!";
           break; // What to add to stop being able to click boxes
         }
       else {
           // alert("im checking winAry position:  "+ i)
       };
     };
-  }
-  // $scope.winnerMessage = function () {
-  //   if ($scope.xTurn = 1) {
-  //     displayBeatles = 1;
-  //   }
-  //   else {
-  //     diplayStones = 1;
-  //   }
-  //   }
+
   
+  }
 };

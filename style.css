@@ -44,3 +44,13 @@ body {
   content:url('img/stones128.png');
   background-color: white;
 }
+.displayBeatles {
+  content:url('img/beatles_win.png');
+}
+.displayStones {
+  content:url('img/stones_win.jpg');
+}
+
+
+
+
