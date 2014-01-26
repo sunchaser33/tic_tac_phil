@@ -9,10 +9,10 @@
     <header>Battle of the Bands</header>
   </head>
   <body> 
-    <div class="container" ng-controller="boardCtrl">
+    <div class="container" x-ng-controller="boardCtrl">
       <div class="message"><h1>{{winner}}</h1></div>
-      <div ng-repeat="box in boxes track by $index" 
-        x-ng-class="{cell:true, clear: $index % 3 == 0, pic1:boxes[$index]=='v', pic2:boxes[$index]=='z'}" 
+      <div x-ng-repeat="box in boxes track by $index" 
+        x-ng-class="{cell:true, clear: $index % 3 == 0, pic1:boxes[$index]=='x', pic2:boxes[$index]=='o'}" 
         x-ng-click="takeTurn($index)"> 
         {{box}}</div>
       

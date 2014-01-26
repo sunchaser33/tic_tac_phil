@@ -1,14 +1,14 @@
-function boardCtrl ($scope) {
-  $scope.boxes = ["","","","","","","","",""] // array to use for bo
-  $scope.xTurn = 'v'; // sets first turn
-  $scope.turnCounter = 1;
-  $scope.takeTurn = function (i) {
-    if ($scope.boxes[i] == "") { // checks if clicked boxe is ""
-      $scope.boxes[i] = $scope.xTurn; // IF it is "" then clicked is xTurn ie 'v'
-      if ($scope.boxes[i] == "v") { // 
-        $scope.xTurn = "z" //this z can be anything
+function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
+  $scope.boxes = ["","","","","","","","",""] // array info to use for board
+  $scope.xTurn = 'x'; // sets first turn
+  $scope.turnCounter = 1; // sets turn counter to 1
+  $scope.takeTurn = function (i) { //defines takeTurn function and passes it i
+    if ($scope.boxes[i] == "") { // checks if clicked box (i in array boxes) is ""
+      $scope.boxes[i] = $scope.xTurn; // IF it is "" then clicked is xTurn ie 'x'
+      if ($scope.boxes[i] == "x") { // checks to see if clicked cell is now 'x'
+        $scope.xTurn = "o" // if clicked cell is NOT x sets it = to o
       } else {
-        $scope.xTurn = "v" // if this x is changed first move is x then doesnt alternate
+        $scope.xTurn = "x" // else it sets clicked cell to x
       };
     } else {
       alert('jackass!') // Top IF -- This pops up if we try to click a box already clicked
@@ -18,6 +18,8 @@ function boardCtrl ($scope) {
     };
     $scope.turnCounter++;
   };
+
+
   $scope.checkWin = function () {
     $scope.winAry = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
     for (var i = 0; i < 8; i++) {
