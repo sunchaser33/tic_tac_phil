@@ -11,7 +11,7 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
         $scope.xTurn = "x" // else it sets clicked cell to x
       };
     } else {
-      alert('jackass!') // Top IF -- This pops up if we try to click a box already clicked
+      alert('Too late Bro; that square is TAKEN...') // Top IF -- This pops up if we try to click a box already clicked
     };
     if ($scope.turnCounter >= 5) {
       $scope.checkWin();
@@ -23,8 +23,11 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
   $scope.checkWin = function () {
     $scope.winAry = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
     for (var i = 0; i < 8; i++) {
-      if ($scope.boxes[$scope.winAry[i][0]] == $scope.boxes[$scope.winAry[i][1]] && $scope.boxes[$scope.winAry[i][0]] == $scope.boxes[$scope.winAry[i][2]] && $scope.boxes[$scope.winAry[i][0]] !== "") {
-          $scope.winner = "Winner!";
+      if ($scope.boxes[$scope.winAry[i][0]] 
+        == $scope.boxes[$scope.winAry[i][1]] && $scope.boxes[$scope.winAry[i][0]] 
+        == $scope.boxes[$scope.winAry[i][2]] && $scope.boxes[$scope.winAry[i][0]] !== "") {
+          $scope.xTurn = $scope.xTurn +1;
+          $scope.winner = "We have a winner!";
           break; // What to add to stop being able to click boxes
         }
       else {
@@ -32,4 +35,13 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
       };
     };
   }
+  // $scope.winnerMessage = function () {
+  //   if ($scope.xTurn = 1) {
+  //     displayBeatles = 1;
+  //   }
+  //   else {
+  //     diplayStones = 1;
+  //   }
+  //   }
+  
 };
