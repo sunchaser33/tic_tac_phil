@@ -4,6 +4,7 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
   $scope.turnCounter = 1; // sets turn counter to 1
   $scope.winner = '';
   $scope.breakLoop = {val: true};
+  $scope.someoneWon = false;
   // var displayBeatlesWinImage = document.getElementById('displayBeatlesWinImage');
   // var displayStonesWinImage = document.getElementById('displayStonesWinImage');
   $scope.resetBoard;
@@ -44,17 +45,18 @@ var winnerMessage = function () {
     if ($scope.xTurn == "o") {
       resetWinner.style.display = 'block';
       $scope.winner = "Beatles Win!!! -- You Are The Walrus!!!";
-      $scope.breakLoop.val = false;    
+      $scope.breakLoop.val = false; 
+      $scope.someoneWon = true;   
       // showBeatles;
     }
     else {
       resetWinner.style.display = 'block';
       $scope.winner = "Stones Win!!! -- Keef is impressed.";
       $scope.breakLoop.val = false;
+      $scope.someoneWon = true;
       // showStones;
     }
   };
-
   $scope.checkWin = function () {
     $scope.winAry = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
     for (var i = 0; i < 8; i++) {
@@ -72,9 +74,16 @@ var winnerMessage = function () {
     };
   };
 
+  $scope.catsGame = function  () {
+       if ($scope.turnCounter >= 9 && someoneWon = false) {
+        $scope.winner = "No One Won -- I guess we'll never know!!!";
+      }
+  }
+
   $scope.resetBoard = function() {
     $scope.boxes = ["","","","","","","","",""];
     $scope.breakLoop.val = true;
+    $scope.someoneWon = false;
     $scope.xTurn = 'x';
     resetWinner.style.display = 'none';
     // hideWinners;

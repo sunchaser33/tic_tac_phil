@@ -20,7 +20,7 @@ body {
 }
 #message {
   display: inline;
-  background-color: grey;
+  background-color: rgba(16, 16, 25, 0.63);
   width: 800px;
   font: 40px;
   color: white;

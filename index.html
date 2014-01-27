@@ -10,7 +10,7 @@
   </head>
   <body> 
     <div class="container" x-ng-app="" x-ng-controller="boardCtrl">
-      <div id="message"><h1>{{winner}}</h1>
+      <div id="message"><h1>&nbsp &nbsp{{winner}}</h1>
     </div>
       <div x-ng-repeat="box in boxes track by $index" 
         x-ng-class="{cell:true, clear: $index % 3 == 0, pic1:boxes[$index]=='x', pic2:boxes[$index]=='o'}" 
