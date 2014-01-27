@@ -18,7 +18,9 @@ body {
   /*width: 50%;*/
 
 }
-.message {
+#message {
+  background-color: grey;
+  width: 800px;
   font: 40px;
   color: white;
 }

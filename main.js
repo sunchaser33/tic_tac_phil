@@ -2,6 +2,7 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
   $scope.boxes = ["","","","","","","","",""] // array info to use for board
   $scope.xTurn = 'x'; // sets first turn
   $scope.turnCounter = 1; // sets turn counter to 1
+  $scope.winner = '';
   $scope.takeTurn = function (i) { //defines takeTurn function and passes it i
     if ($scope.boxes[i] == "") { // checks if clicked box (i in array boxes) is ""
       $scope.boxes[i] = $scope.xTurn; // IF it is "" then clicked is xTurn ie 'x'
@@ -18,12 +19,14 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
     };
     $scope.turnCounter++;
   };
-
+var resetWinner = document.getElementById('message');
 var winnerMessage = function () {
     if ($scope.xTurn == "o") {
+      resetWinner.style.display = 'block';
       $scope.winner = "Beatles Win!!! -- You Are The Walrus!!!";
     }
     else {
+      resetWinner.style.display = 'block';
       $scope.winner = "Stones Win!!! -- Keef is impressed.";
     }
   };
@@ -37,13 +40,29 @@ var winnerMessage = function () {
           console.log($scope.xTurn);
           winnerMessage();
           // $scope.winner = "We have a winner!";
-          break; // What to add to stop being able to click boxes
+          // $scope.breakLoop.val = !$scope.breakLoop.val; // What to add to stop being able to click boxes
         }
       else {
           // alert("im checking winAry position:  "+ i)
       };
     };
-
-  
   };
+
+
+
+  $scope.resetBoard = function() {
+    $scope.boxes = ["","","","","","","","",""];
+    // $scope.breakLoop.val = true;
+    $scope.xTurn = 'x';
+    resetWinner.style.display = 'none';
+  }
 };
+
+
+
+
+
+
+
+
+
