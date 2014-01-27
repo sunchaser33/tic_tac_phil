@@ -19,10 +19,13 @@ body {
 
 }
 #message {
+  display: inline;
   background-color: grey;
   width: 800px;
   font: 40px;
   color: white;
+  position: relative;
+  left: -150px;
 }
 /* .pic1, .pic2 {
   background: url(same url for both sprite);
@@ -40,17 +43,36 @@ body {
   clear:both;
 }
 .pic1 {
-  content:url('img/apple_150.jpg');
+  content:url('img/apple_beatles.jpg');
 }
 .pic2 {
   content:url('img/stones128.png');
   background-color: white;
 }
-.displayBeatles {
+#displayBeatlesWinImage {
   content:url('img/beatles_win.png');
+  /*display: 'none';*/
+  position: absolute;
+  left: -9999px;
+  width: 800px;
+  /*margin: 0 auto;*/
+  /*display: 'none';*/
 }
-.displayStones {
+#displayStonesWinImage {
   content:url('img/stones_win.jpg');
+  /*display: 'none';*/
+  position: absolute;
+  left: -9999px;
+  width: 800px;
+  margin: 0 auto;
+  /*display: 'none';*/
+}
+.show {
+  position: fixed;
+  left: 150px;
+}
+.hide {
+  left: -9999px;
 }
 
 

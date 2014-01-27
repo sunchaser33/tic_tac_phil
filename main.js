@@ -3,31 +3,55 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
   $scope.xTurn = 'x'; // sets first turn
   $scope.turnCounter = 1; // sets turn counter to 1
   $scope.winner = '';
+  $scope.breakLoop = {val: true};
+  // var displayBeatlesWinImage = document.getElementById('displayBeatlesWinImage');
+  // var displayStonesWinImage = document.getElementById('displayStonesWinImage');
+  $scope.resetBoard;
+
+  // hideWinners = function () {
+  //   document.getElementsByClassName("show").hide = "beatlesHidden";
+  //   document.getElementsByClassName("show").hide = "stonesHidden";
+  // }
+  // showBeatles = function () {
+  //   document.getElementsByClassName("hide").show = "beatlesHidden";
+  //  } 
+  // showStones = function () {
+  //   document.getElementsByClassName("hide").show = "stonesHidden";
+  // }
+
   $scope.takeTurn = function (i) { //defines takeTurn function and passes it i
-    if ($scope.boxes[i] == "") { // checks if clicked box (i in array boxes) is ""
-      $scope.boxes[i] = $scope.xTurn; // IF it is "" then clicked is xTurn ie 'x'
-      if ($scope.boxes[i] == "x") { // checks to see if clicked cell is now 'x'
-        $scope.xTurn = "o" // if clicked cell is NOT x sets it = to o
+    if ($scope.breakLoop.val) {
+      if ($scope.boxes[i] == "") { // checks if clicked box (i in array boxes) is ""
+        $scope.boxes[i] = $scope.xTurn; // IF it is "" then clicked is xTurn ie 'x'
+        if ($scope.boxes[i] == "x") { // checks to see if clicked cell is now 'x'
+          $scope.xTurn = "o" // if clicked cell is NOT x sets it = to o
+        } else {
+          $scope.xTurn = "x" // else it sets clicked cell to x
+        };
       } else {
-        $scope.xTurn = "x" // else it sets clicked cell to x
+        alert('Too late Bro; that square is TAKEN...') // Top IF -- This pops up if we try to click a box already clicked
       };
-    } else {
-      alert('Too late Bro; that square is TAKEN...') // Top IF -- This pops up if we try to click a box already clicked
-    };
-    if ($scope.turnCounter >= 5) {
-      $scope.checkWin();
-    };
-    $scope.turnCounter++;
+      if ($scope.turnCounter >= 5) {
+        $scope.checkWin();
+      };
+      $scope.turnCounter++;
+    }  
   };
 var resetWinner = document.getElementById('message');
+
+
 var winnerMessage = function () {
     if ($scope.xTurn == "o") {
       resetWinner.style.display = 'block';
       $scope.winner = "Beatles Win!!! -- You Are The Walrus!!!";
+      $scope.breakLoop.val = false;    
+      // showBeatles;
     }
     else {
       resetWinner.style.display = 'block';
       $scope.winner = "Stones Win!!! -- Keef is impressed.";
+      $scope.breakLoop.val = false;
+      // showStones;
     }
   };
 
@@ -48,13 +72,12 @@ var winnerMessage = function () {
     };
   };
 
-
-
   $scope.resetBoard = function() {
     $scope.boxes = ["","","","","","","","",""];
-    // $scope.breakLoop.val = true;
+    $scope.breakLoop.val = true;
     $scope.xTurn = 'x';
     resetWinner.style.display = 'none';
+    // hideWinners;
   }
 };
 
