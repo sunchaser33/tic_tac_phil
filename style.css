@@ -21,7 +21,8 @@ body {
 
 }
 #message {
-  display: inline;
+  display: block;
+  visibility: 'hidden';
   background-color: rgba(16, 16, 25, 0.63);
   width: 800px;
   font: 40px;

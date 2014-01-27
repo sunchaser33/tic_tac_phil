@@ -5,6 +5,9 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
   $scope.winner = '';
   $scope.breakLoop = {val: true};
   $scope.someoneWon = false;
+  var resetWinner = document.getElementById('message');
+
+  resetWinner.style.visibility = 'hidden'
   // var displayBeatlesWinImage = document.getElementById('displayBeatlesWinImage');
   // var displayStonesWinImage = document.getElementById('displayStonesWinImage');
   $scope.resetBoard;
@@ -38,19 +41,18 @@ function boardCtrl ($scope) { // passes scope to boardCtrl which is controller
       $scope.turnCounter++;
     }  
   };
-var resetWinner = document.getElementById('message');
 
 
 var winnerMessage = function () {
     if ($scope.xTurn == "o") {
-      resetWinner.style.display = 'block';
+      resetWinner.style.visibility = 'visible';
       $scope.winner = "Beatles Win!!! -- You Are The Walrus!!!";
       $scope.breakLoop.val = false; 
       $scope.someoneWon = true;   
       // showBeatles;
     }
     else {
-      resetWinner.style.display = 'block';
+      resetWinner.style.visibility = 'visible';
       $scope.winner = "Stones Win!!! -- Keef is impressed.";
       $scope.breakLoop.val = false;
       $scope.someoneWon = true;
@@ -85,7 +87,7 @@ var winnerMessage = function () {
     $scope.breakLoop.val = true;
     $scope.someoneWon = false;
     $scope.xTurn = 'x';
-    resetWinner.style.display = 'none';
+    resetWinner.style.visibility = 'hidden';
     // hideWinners;
   }
 };
